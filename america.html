@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AR.js - Escudo del América</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/'
+    </script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+
+    <a-scene embedded artoolkit='sourceType: webcam;'>
+        
+        <a-assets>
+            <a-asset-item id="escudoModel" src="./assets/escudo_america.gltf"></a-asset-item> 
+        </a-assets>
+
+        <a-marker-camera preset='hiro'>
+            
+            <a-gltf-model 
+                src="#escudoModel" 
+                position="0 0.5 0"          rotation="-90 0 0"          scale="0.2 0.2 0.2"         >
+                
+                <a-animation 
+                    attribute="rotation"
+                    to="0 360 0"
+                    dur="5000"
+                    easing="linear"     
+                    repeat="indefinite">
+                </a-animation>
+            </a-gltf-model>
+            
+        </a-marker-camera>
+        
+    </a-scene>
+</body>
+</html>
