@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AR.js - Esfera en Hiro</title>
+    <title>AR.js - Imagen sobre Marcador de Balón</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
     <script>
@@ -16,24 +15,18 @@
 
     <a-scene embedded artoolkit='sourceType: webcam;'>
         
-        <a-sphere 
-            src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg" 
-            radius="0.5" 
-            position="0 0.5 0" 
-            segments-height="53"
-            >
-            <a-animation 
-                attribute="scale"
-                dur="1000"
-                from="1 1 1"
-                to="2 2 2"
-                direction='alternate-reverse'
-                easing="ease-in-out-circ"     
-                repeat="indefinite">
-            </a-animation>
-        </a-sphere>
+        <a-marker type='pattern' url='marcadorFutbol.patt'> 
+            
+            <a-image 
+                src="estadio.jpg" 
+                width="1.0" 
+                height="0.6" 
+                position="0 0.5 0"
+                rotation="-90 0 0"> </a-image>
+
+        </a-marker>
         
-        <a-marker-camera preset='hiro'></a-marker-camera>
+        <a-entity camera></a-entity>
         
     </a-scene>
 </body>
